@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="category_real_estate_brokerage" model="ir.module.category">
+            <field name="name">Real Estate Manager.</field>
+            <field name="description">Helps you manage your employees.</field>
+        </record>
+
+        <record id="estate_group_user" model="res.groups">
+            <field name="name">Agent</field>
+            <field name="category_id" ref="category_real_estate_brokerage"/>
+        </record>
+        <record id="estate_group_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="category_real_estate_brokerage"/>
+        </record>
+        
+    </data>
+</odoo>
+
+
+
+
+
+
+
