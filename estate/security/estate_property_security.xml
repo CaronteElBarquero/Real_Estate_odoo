@@ -12,9 +12,23 @@
             <field name="name">Agent</field>
             <field name="category_id" ref="category_real_estate_brokerage"/>
         </record>
+
         <record id="estate_group_manager" model="res.groups">
             <field name="name">Manager</field>
             <field name="category_id" ref="category_real_estate_brokerage"/>
+        </record>
+
+        <!-- Le otorgamos los permisos a los grupos, haciendo como una pequeña herencia
+            Esto con el fin de que cuando se instale el modulo no salga el error de que no se encuentra el grupo
+            y no se pueda instalar el modulo Real Estate ya que no tiene los permisos debidos
+        -->
+
+        <record id="base.user_admin" model="res.users">
+            <field name="groups_id" eval="[(4, ref('estate.estate_group_user'))]"/>
+        </record>
+
+        <record id="base.group_system" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('estate.estate_group_manager'))]"/>
         </record>
         
     </data>

@@ -1,7 +1,7 @@
 {
 
     'name': 'Real Estate',
-    'version': '1.0.0',
+    'version': '3.0.0',
     'author': 'Miguel',
     'license': 'LGPL-3',
     'sequence': 5,
@@ -11,8 +11,8 @@
          'mail'
     ],
     'data': [
-        'security/ir.model.access.csv',
         'security/estate_property_security.xml',
+        'security/ir.model.access.csv',
 
         'views/estate_property_views.xml',
         'views/estate_property_offer_views.xml',

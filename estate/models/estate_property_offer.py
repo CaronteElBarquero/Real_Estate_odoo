@@ -1,5 +1,6 @@
 from odoo import api,fields, models
 from odoo.exceptions import UserError
+from odoo.tools import float_compare
 
 from datetime import timedelta
 
@@ -62,10 +63,11 @@ class EstatePropertyOffer(models.Model):
     @api.depends("validity_days")
     def _compute_date_deadline(self):
         for record in self:
-            if record.create_date & record.validity_days:
+            if record.create_date and record.validity_days:
                 record.date_deadline = record.create_date + timedelta(days=record.validity_days)
             else:
-                record.date_deadline = fields.Date.today()
+                record.date_deadline = datetime.date.today()
+
 
 
     def _inverse_date_deadline(self):

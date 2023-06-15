@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <odoo>
     <data>
 
         <menuitem id="test_menu_root" name="Real Estate" sequence="3">
+
             <menuitem id="advertisement_menu" name="Advertisement" sequence="1">
                 <menuitem id="estate_property_menu_action" action="estate_property_action" name="Property"/>
             </menuitem>
@@ -11,6 +13,8 @@
                 <menuitem id="estate_property_type_menu_action" action="estate_property_type_action" sequence="1"/>
                 <menuitem id="estate_property_tag_menu_action" action="estate_property_tag_action" sequence="2"/>
             </menuitem>
+
+
         </menuitem>
         
     </data>

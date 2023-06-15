@@ -99,11 +99,15 @@ class EstateProperty(models.Model):
     @api.constrains("selling_price", "expected_price")
     def _check_selling_price(self):
         for record in self:
-            calculated_selling_price = record.expected_price * 0.9
-            for offers in record.offer_ids:
-                if offers.status == "accepted":
-                    if float_compare(record.selling_price, calculated_selling_price, 2) < 0:
-                        raise ValidationError("El precio de venta no puede ser menor que el 90% del precio esperado")
+            if (float_is_zero(record.selling_price, precision_digits=2)):
+                  continue
+            else:
+                calculated_selling_price = record.expected_price * 0.9
+                for offers in record.offer_ids:
+                    if offers.status == "accepted":
+                        if float_compare(record.selling_price, calculated_selling_price, 2) < 0.9:
+                            raise ValidationError("El precio de venta no puede ser menor al 90% del precio esperado")
+
 
 
     def unlink(self):
